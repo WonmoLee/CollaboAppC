@@ -22,9 +22,10 @@ app.on('ready', ()=>{
         height: height,
         resizeable: false,
         fullscreenable: false,
+        show: false,
         webPreferences: {
             affinity:true,
-            nodeIntegration: false
+            nodeIntegration: true
         }
     };
     win = new BrowserWindow(options);
@@ -33,6 +34,13 @@ app.on('ready', ()=>{
         protocol: 'file'
     }));
     win.webContents.openDevTools(); // 개발자도구
+    win.once('ready-to-show', ()=>{
+        win.show();
+    });
+    win.on('closed', ()=>{
+        win = null;
+        app.quit();
+    })
 });
 app.on('window-all-closed', ()=>{
     app.quit();
