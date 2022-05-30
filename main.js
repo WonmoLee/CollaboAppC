@@ -12,6 +12,7 @@ const electron = require('electron');
 const {app, BrowserWindow} = electron;
 const url = require('url');
 const path = require('path');
+const handler_manager = require('./handler_manager');
 
 let win;
 
