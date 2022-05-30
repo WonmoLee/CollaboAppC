@@ -32,6 +32,7 @@ app.on('ready', ()=>{
         pathname: path.join(__dirname, 'login.html'),
         protocol: 'file'
     }));
+    win.webContents.openDevTools(); // 개발자도구
 });
 app.on('window-all-closed', ()=>{
     app.quit();
