@@ -23,8 +23,8 @@ const { ipcRenderer } = require('electron');
 
 let win;
 let socket;
-
-app.on('ready', ()=>{
+let modal;
+const displayLoginWindow = (event, message)=>{
     const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
     const options = {
         width: width,
@@ -53,7 +53,17 @@ app.on('ready', ()=>{
         win = null;
         app.quit();
     })
-});
+}
+const displaySignUpModal = (event, message)=>{
+
+};
+const destroySignUpModal = (event, message)=>{
+
+};
+app.on('ready', displayLoginWindow);
+
+ipcMain.on('displaySignUpModal', displaySignUpModal);
+ipcMain.on('destroySignUpModal', destroySignUpModal);
 
 ipcMain.on('signInRequest', (event, message)=>{
     httpInstance.post('/users/login', message)
