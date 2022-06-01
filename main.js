@@ -55,10 +55,24 @@ const displayLoginWindow = (event, message)=>{
     })
 }
 const displaySignUpModal = (event, message)=>{
-
+    modal = new BrowserWindow({
+        parent: win,
+        modal: true,
+        show: false
+    });
+    modal.loadURL(url.format({
+        pathname: path.join(__dirname, 'signUpModal.html'),
+        protocol: 'file:'
+    }));
+    modal.on('ready-to-show', ()=>{
+        modal.show();
+    })
+    modal.on('closed', ()=>{
+        modal = null;
+    })
 };
 const destroySignUpModal = (event, message)=>{
-
+    modal.close();
 };
 app.on('ready', displayLoginWindow);
 

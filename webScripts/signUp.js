@@ -17,10 +17,13 @@
     });
     const userIdInput = document.getElementById('user-id-input');
     const userPasswordInput = document.getElementById('user-password-input');
-    const signInButton = document.getElementById('button-SignIn');
+    const cancelButton = document.getElementById('button-Cancel');
     const signUpButton = document.getElementById('button-SignUp');
 
-    signInButton.addEventListener('clcik', ()=>{
+    cancelButton.addEventListener('clcik', ()=>{
+        ipcRenderer.send('destroySignUpModal');
+    });
+    signUpButton.addEventListener('clcik', ()=>{
         console.log('click');
         const id = userIdInput.value;
         const password = userPasswordInput.value;
@@ -28,17 +31,14 @@
             id: id,
             password: password
         };
-        ipcRenderer.send('signInRequest', parameter);
+        ipcRenderer.send('signUpRequest', parameter);
     });
-    ipcRenderer.on('signInRequest-Success', (event, message)=>{
+    ipcRenderer.on('signUpRequest-Success', (event, message)=>{
         console.log(message);
         alert(message.statusText);
-    });
-    ipcRenderer.on('signInRequest-Failed', (event, message)=>{
+    })
+    ipcRenderer.on('signUpRequest-Failed', (event, message)=>{
         console.log(message);
         alert(message.statusText);
-    });
-    signUpButton.addEventListener('click', ()=>{
-        ipcRenderer.send('displaySignUpModal');
-    });
+    })
 })();
