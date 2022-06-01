@@ -20,10 +20,10 @@
     const cancelButton = document.getElementById('button-Cancel');
     const signUpButton = document.getElementById('button-SignUp');
 
-    cancelButton.addEventListener('clcik', ()=>{
+    cancelButton.addEventListener('click', ()=>{
         ipcRenderer.send('destroySignUpModal');
     });
-    signUpButton.addEventListener('clcik', ()=>{
+    signUpButton.addEventListener('click', ()=>{
         console.log('click');
         const id = userIdInput.value;
         const password = userPasswordInput.value;

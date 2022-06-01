@@ -20,7 +20,7 @@
     const signInButton = document.getElementById('button-SignIn');
     const signUpButton = document.getElementById('button-SignUp');
 
-    signInButton.addEventListener('clcik', ()=>{
+    signInButton.addEventListener('click', ()=>{
         console.log('click');
         const id = userIdInput.value;
         const password = userPasswordInput.value;
