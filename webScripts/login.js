@@ -19,6 +19,7 @@
     const userPasswordInput = document.getElementById('user-password-input');
     const signInButton = document.getElementById('button-SignIn');
     const signUpButton = document.getElementById('button-SignUp');
+    const hidePage = document.getElementById('hide-page');
 
     signInButton.addEventListener('click', ()=>{
         console.log('click');
@@ -38,6 +39,9 @@
         console.log(message);
         alert(message.statusText);
     });
+    ipcRenderer.on('hide-page', (event, message)=>{
+        hidePage.classList.toggle('on');
+    })
     signUpButton.addEventListener('click', ()=>{
         ipcRenderer.send('displaySignUpModal');
     });

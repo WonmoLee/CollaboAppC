@@ -55,6 +55,7 @@ const displayLoginWindow = (event, message)=>{
     })
 }
 const displaySignUpModal = (event, message)=>{
+    win.webContents.send('hide-page');
     modal = new BrowserWindow({
         parent: win,
         modal: true,
@@ -72,6 +73,7 @@ const displaySignUpModal = (event, message)=>{
     })
 };
 const destroySignUpModal = (event, message)=>{
+    win.webContents.send('hide-page');
     modal.close();
 };
 app.on('ready', displayLoginWindow);
