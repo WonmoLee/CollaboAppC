@@ -76,11 +76,24 @@ const destroySignUpModal = (event, message)=>{
     win.webContents.send('hide-page');
     modal.close();
 };
+const createSignUpRequest = (event, message)=>{
+    httpInstance.post('/users', message)
+    .then((response)=>{
+        event.sender.send('signUpRequest-Success', response.data);
+    })
+    .catch((error)=>{
+        const result = {
+            status: error.response.status,
+            statusText: error.response.statusText
+        }
+        event.sender.send('signUpRequest-Failed', result);
+    });
+};
 app.on('ready', displayLoginWindow);
 
 ipcMain.on('displaySignUpModal', displaySignUpModal);
 ipcMain.on('destroySignUpModal', destroySignUpModal);
-
+ipcMain.on('signUpRequest', createSignUpRequest);
 ipcMain.on('signInRequest', (event, message)=>{
     httpInstance.post('/users/login', message)
     .then((response)=>{

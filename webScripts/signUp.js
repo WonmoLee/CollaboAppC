@@ -35,7 +35,7 @@
     });
     ipcRenderer.on('signUpRequest-Success', (event, message)=>{
         console.log(message);
-        alert(message.statusText);
+        alert(message.id);
     })
     ipcRenderer.on('signUpRequest-Failed', (event, message)=>{
         console.log(message);
