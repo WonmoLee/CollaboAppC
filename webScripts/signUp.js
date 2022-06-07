@@ -35,10 +35,11 @@
     });
     ipcRenderer.on('signUpRequest-Success', (event, message)=>{
         console.log(message);
-        alert(message.id);
-    })
+        alert("가입성공");
+        ipcRenderer.send('destroySignUpModal');
+    });
     ipcRenderer.on('signUpRequest-Failed', (event, message)=>{
         console.log(message);
         alert(message.statusText);
-    })
+    });
 })();

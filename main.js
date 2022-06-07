@@ -24,6 +24,7 @@ const { ipcRenderer } = require('electron');
 let win;
 let socket;
 let modal;
+let waitDialog;
 const displayLoginWindow = (event, message)=>{
     const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
     const options = {
@@ -52,7 +53,7 @@ const displayLoginWindow = (event, message)=>{
         console.log('window closed');
         win = null;
         app.quit();
-    })
+    });
 }
 const displaySignUpModal = (event, message)=>{
     win.webContents.send('hide-page');
@@ -89,8 +90,38 @@ const createSignUpRequest = (event, message)=>{
         event.sender.send('signUpRequest-Failed', result);
     });
 };
+const displayWaitDialog = (event, message)=>{
+    const options = {
+        width: 800,
+        height: 800,
+        resizeable: false,
+        fullscreenable: false,
+        show: false,
+        frame: false,
+        webPreferences: {
+            affinity:true,
+            nodeIntegration: true
+        }
+    };
+    waitDialog = new BrowserWindow(options);
+    waitDialog.loadURL(url.format({
+        pathname: path.join(__dirname, 'waitDialog.html'),
+        protocol: 'file',
+        slashes: true
+    }));
+    waitDialog.once('ready-to-show', ()=>{
+        waitDialog.show();
+    });
+    waitDialog.on('closed', ()=>{
+        waitDialog = null;
+    }) 
+};
+const destroyWaitDialog = (event, message)=>{
+    
+};
 app.on('ready', displayLoginWindow);
-
+ipcMain.on('displayWaitDialog', displayWaitDialog);
+ipcMain.on('destroyWaitDialog', destroyWaitDialog);
 ipcMain.on('displaySignUpModal', displaySignUpModal);
 ipcMain.on('destroySignUpModal', destroySignUpModal);
 ipcMain.on('signUpRequest', createSignUpRequest);

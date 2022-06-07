@@ -33,7 +33,8 @@
     });
     ipcRenderer.on('signInRequest-Success', (event, message)=>{
         console.log(message);
-        alert(message.statusText);
+        alert('로그인 성공');
+        ipcRenderer.send('displayWaitDialog');
     });
     ipcRenderer.on('signInRequest-Failed', (event, message)=>{
         console.log(message);
