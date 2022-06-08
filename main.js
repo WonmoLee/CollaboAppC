@@ -110,6 +110,7 @@ const displayWaitDialog = (event, message)=>{
         slashes: true
     }));
     waitDialog.once('ready-to-show', ()=>{
+        win.hide();
         waitDialog.show();
     });
     waitDialog.on('closed', ()=>{
