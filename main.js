@@ -25,6 +25,7 @@ let win;
 let socket;
 let modal;
 let waitDialog;
+let listener;
 const displayLoginWindow = (event, message)=>{
     const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
     const options = {
@@ -112,13 +113,33 @@ const displayWaitDialog = (event, message)=>{
     waitDialog.once('ready-to-show', ()=>{
         win.hide();
         waitDialog.show();
+        const socketURL = 'ws://127.0.0.1:3000';
+        const socketOptions = {
+            transports: ['websocket'],
+            forceNew: true,
+            query: {
+                token: message.data.token
+            }
+        };
+        socket = SocketService.createSocket(io, socketURL, socketOptions);
+        listener= SocketService.addHandler(socket, waitDialog, handler_manager[0]);
     });
     waitDialog.on('closed', ()=>{
         waitDialog = null;
     }) 
 };
 const destroyWaitDialog = (event, message)=>{
-    
+    socket.removeListener('connect', listener);
+    win.loadURL(url.format({
+        pathname: path.join(__dirname, 'main.html'),
+        protocol: 'file',
+        slashes: true
+    }));
+    win.once('ready-to-show', ()=>{
+        SocketService.addHandlers(socket, win, handler_manager);
+        waitDialog.close();
+        win.show();
+    });
 };
 app.on('ready', displayLoginWindow);
 ipcMain.on('displayWaitDialog', displayWaitDialog);
@@ -129,16 +150,6 @@ ipcMain.on('signUpRequest', createSignUpRequest);
 ipcMain.on('signInRequest', (event, message)=>{
     httpInstance.post('/users/login', message)
     .then((response)=>{
-        const socketURL = 'ws://127.0.0.1:3000';
-        const socketOptions = {
-            transports: ['websocket'],
-            forceNew: true,
-            query: {
-                token: response.data.token
-            }
-        };
-        socket = SocketService.createSocket(io, socketURL, socketOptions);
-        SocketService.addHandlers(socket, win, handler_manager);
         event.sender.send('signInRequest-Success', response);
     })
     .catch((error)=>{
