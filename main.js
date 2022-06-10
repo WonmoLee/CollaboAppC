@@ -20,7 +20,7 @@ const httpInstance = axios.create({
 const handler_manager = require('./handler_manager');
 const SocketService = require('./service/socketService');
 const { ipcRenderer } = require('electron');
-
+const SocketEvent = require('./handler_manager/event/socketEvent');
 let win;
 let socket;
 let modal;
@@ -123,8 +123,8 @@ const displayWaitDialog = (event, message)=>{
             }
         };
         socket = SocketService.createSocket(io, socketURL, socketOptions);
-        listener = SocketService.addHandler(socket, waitDialog, handler_manager[0]);
-        errorListener = SocketService.addHandler(socket, waitDialog, handler_manager[1]);
+        listener = SocketService.addHandler(socket, waitDialog, handler_manager[SocketEvent.CONNECT]);
+        errorListener = SocketService.addHandler(socket, waitDialog, handler_manager[SocketEvent.ERROR]);
     });
     waitDialog.on('closed', ()=>{
         waitDialog = null;
@@ -140,6 +140,9 @@ const destroyWaitDialog = (event, message)=>{
     }));
     setTimeout(function(){
         SocketService.addHandlers(socket, win, handler_manager);
+        SocketService.addHandler(socket, win, handler_manager[SocketEvent.CONNECT]);
+        SocketService.addHandler(socket, win, handler_manager[SocketEvent.ERROR]);
+        SocketService.addHandler(socket, win, handler_manager[SocketEvent.DISCONNECT]);
         waitDialog.close();
         win.show();
     }, 2000);

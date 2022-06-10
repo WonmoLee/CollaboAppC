@@ -9,46 +9,57 @@
  */
 
 const SocketEvent = require('./event/socketEvent');
+const dict = [];
 
-module.exports = [
-    {
-        event: SocketEvent.CONNECT,
-        handler: require('./handler/onConnect')
-    },
-    {
-        event: SocketEvent.ERROR,
-        handler: require('./handler/onError')
-    },
-    {
-        event: SocketEvent.CONNECT_TIMEOUT,
-        handler: require('./handler/onConnectTimeout')
-    },
-    {
-        event: SocketEvent.DISCONNECT,
-        handler: require('./handler/onDisconnect')
-    },
-    {
-        event: SocketEvent.HELLO,
-        handler: require('./handler/onHello')
-    },
-    {
-        event: SocketEvent.PING,
-        handler: require('./handler/onPing')
-    },
-    {
-        event: SocketEvent.PONG,
-        handler: require('./handler/onPong')
-    },
-    {
-        event: SocketEvent.RECONNECT_ERROR,
-        handler: require('./handler/onReconnectError')
-    },
-    {
-        event: SocketEvent.RECONNECT_FAILED,
-        handler: require('./handler/onReconnectFailed')
-    },
-    {
-        event: SocketEvent.RECONNECTING,
-        handler: require('./handler/onReconnecting')
-    },
-]
+dict[SocketEvent.CONNECT] = {
+    type: 0,
+    event: SocketEvent.CONNECT,
+    handler: require('./handler/onConnect')
+};
+dict[SocketEvent.ERROR] = {
+    type: 1,
+    event: SocketEvent.ERROR,
+    handler: require('./handler/onError')
+};
+dict[SocketEvent.CONNECT_TIMEOUT] = {
+    type: 0,
+    event: SocketEvent.CONNECT_TIMEOUT,
+    handler: require('./handler/onConnectTimeout')
+};
+dict[SocketEvent.DISCONNECT] = {
+    type: 1,
+    event: SocketEvent.DISCONNECT,
+    handler: require('./handler/onDisconnect')
+};
+dict[SocketEvent.HELLO] = {
+    type: 0,
+    event: SocketEvent.HELLO,
+    handler: require('./handler/onHello')
+};
+dict[SocketEvent.PING] = {
+    type: 0,
+    event: SocketEvent.PING,
+    handler: require('./handler/onPing')
+};
+dict[SocketEvent.PONG] = {
+    type: 0,
+    event: SocketEvent.PONG,
+    handler: require('./handler/onPong')
+};
+dict[SocketEvent.RECONNECT_ERROR] = {
+    type: 0,
+    event: SocketEvent.RECONNECT_ERROR,
+    handler: require('./handler/onReconnectError')
+};
+dict[SocketEvent.RECONNECT_FAILED] = {
+    type: 0,
+    event: SocketEvent.RECONNECT_FAILED,
+    handler: require('./handler/onReconnectFailed')
+};
+dict[SocketEvent.RECONNECTING] = {
+    type: 0,
+    event: SocketEvent.RECONNECTING,
+    handler: require('./handler/onReconnecting')
+};
+
+module.exports = dict;
