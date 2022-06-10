@@ -30,7 +30,7 @@ let errorListener;
 const displayLoginWindow = (event, message)=>{
     const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
     const options = {
-        width: width,
+        width: width-200,
         height: height-50,
         resizeable: false,
         fullscreenable: false,
