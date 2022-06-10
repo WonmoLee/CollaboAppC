@@ -99,8 +99,8 @@ const createSignUpRequest = (event, message)=>{
 };
 const displayWaitDialog = (event, message)=>{
     const options = {
-        width: 800,
-        height: 800,
+        width: 300,
+        height: 300,
         resizeable: false,
         fullscreenable: false,
         show: false,
@@ -140,6 +140,10 @@ const displayWaitDialog = (event, message)=>{
 const destroyWaitDialog = (event, message)=>{
     socket.removeListener('connect', listener);
     socket.removeListener('error', errorListener);
+    win.webContents.clearHistory();
+    win.setResizable(true);
+    win.setFullScreenable(true);
+    win.setMinimumSize(600, 600);
     win.loadURL(url.format({
         pathname: path.join(__dirname, 'main.html'),
         protocol: 'file',
