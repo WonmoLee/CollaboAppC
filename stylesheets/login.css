@@ -3,24 +3,23 @@
     display: grid;
     justify-content: center;
   }
+
   .join__box {
     width: 450px;
     height: 550px;
     padding: 62px 58px 0 58px;
     background-color: #ffffff;
     position: relative;
-    top: 50px;
+    top: 150px;
     border-radius: 0.5vw;
     box-shadow: 0 0 26px 0px rgba(19, 19, 19, 0.2);
   }
-  .join__title,
-  .join__title2 {
+
+  .join__title{
     color: red;
     font-size: 20px;
-  }
-  .join__title2 {
-    color: black;
-    margin-bottom: 2.5rem;
+    text-align: center;
+    padding-bottom: 50px;
   }
 
   .username__check {
@@ -31,7 +30,6 @@
   .text-input1 {
     width: 435px;
     height: 33px;
-    border-radius: 1vw;
     border-style: solid;
     border-color: #a6a6a6;
   }
