@@ -5,15 +5,57 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder build"
   },
   "dependencies": {
+    "axios": "~0.18.0",
     "babel-cli": "~6.26.0",
     "babel-preset-env": "~1.7.0",
-    "socket.io-client": "~2.1.1",
-    "electron": "~2.0.3",
-    "axios": "~0.18.0"
+    "electron-packager": "^15.5.1",
+    "socket.io-client": "~2.1.1"
   },
   "author": "wonmoLee",
-  "license": "ISC"
+  "license": "ISC",
+  "build": {
+    "productName": "OM",
+    "appId": "com.Collabo.electron",
+    "asar": true,
+    "mac": {
+      "target": [
+        "default"
+      ],
+      "icon": "build/icons/icon.icns"
+    },
+    "dmg": {
+      "title": "OM",
+      "icon": "build/icons/icon.icns"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "perMachine": true,
+      "language": 1042,
+      "installerIcon": "build/icons/icon.ico",
+      "shortcutName": "OM",
+      "artifactName": "OM-${version}.${ext}",
+      "uninstallDisplayName": "OM"
+    },
+    "directories": {
+      "buildResources": "./build/",
+      "output": "./dist/"
+    }
+  },
+  "devDependencies": {
+    "electron-builder": "^23.0.3",
+    "webpack": "^5.73.0",
+    "electron": "~2.0.3"
+  }
 }
