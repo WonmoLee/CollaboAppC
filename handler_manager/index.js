@@ -61,5 +61,30 @@ dict[SocketEvent.RECONNECTING] = {
     event: SocketEvent.RECONNECTING,
     handler: require('./handler/onReconnecting')
 };
+dict[SocketEvent.RECONNECT_ATTEMPT] = {
+    type: 1,
+    event: SocketEvent.RECONNECT_ATTEMPT,
+    handler: require('./handler/onReconnectAttempt')
+};
+dict[SocketEvent.RECONNECT] = {
+    type: 1,
+    event: SocketEvent.RECONNECT,
+    handler: require('./handler/onReconnect')
+};
+dict[SocketEvent.TOKENREFRESHREQUIRED] = {
+    type: 1,
+    event: SocketEvent.TOKENREFRESHREQUIRED,
+    handler: require('./handler/onTokenRefreshRequired')
+};
+dict[SocketEvent.BROADCAST_MESSAGE] = {
+    type: 1,
+    event: SocketEvent.BROADCAST_MESSAGE,
+    handler: require('./handler/onBroadcastMessage')
+};
+dict[SocketEvent.RECEIVE_INVITEUSER] = {
+    type: 1,
+    event: SocketEvent.RECEIVE_INVITEUSER,
+    handler: require('./handler/onReceiveInviteUser')
+};
 
 module.exports = dict;

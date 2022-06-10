@@ -21,12 +21,17 @@ const handler_manager = require('./handler_manager');
 const SocketService = require('./service/socketService');
 const { ipcRenderer } = require('electron');
 const SocketEvent = require('./handler_manager/event/socketEvent');
+const TokenManager = require('./service/tokenManager');
+const tokenManager = new TokenManager();
+
 let win;
 let socket;
 let modal;
 let waitDialog;
 let listener;
 let errorListener;
+let locale;
+
 const displayLoginWindow = (event, message)=>{
     const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
     const options = {
@@ -119,12 +124,14 @@ const displayWaitDialog = (event, message)=>{
             transports: ['websocket'],
             forceNew: true,
             query: {
+                id: tokenManager.getId(),
                 token: message.data.token
             }
         };
         socket = SocketService.createSocket(io, socketURL, socketOptions);
+        tokenManager.setToken(message.data.token);
         listener = SocketService.addHandler(socket, waitDialog, handler_manager[SocketEvent.CONNECT]);
-        errorListener = SocketService.addHandler(socket, waitDialog, handler_manager[SocketEvent.ERROR]);
+        errorListener = SocketService.addHandlerWithTokenManager(socket, waitDialog, handler_manager[SocketEvent.ERROR], tokenManager);
     });
     waitDialog.on('closed', ()=>{
         waitDialog = null;
@@ -141,9 +148,15 @@ const destroyWaitDialog = (event, message)=>{
     setTimeout(function(){
         SocketService.addHandlers(socket, win, handler_manager);
         SocketService.addHandler(socket, win, handler_manager[SocketEvent.CONNECT]);
-        SocketService.addHandler(socket, win, handler_manager[SocketEvent.ERROR]);
-        SocketService.addHandler(socket, win, handler_manager[SocketEvent.DISCONNECT]);
+        SocketService.addHandlerWithTokenManager(socket, win, handler_manager[SocketEvent.RECONNECT_ATTEMPT], tokenManager);
+        SocketService.addHandlerWithTokenManager(socket, win, handler_manager[SocketEvent.DISCONNECT], tokenManager);
+        SocketService.addHandlerWithTokenManager(socket, win, handler_manager[SocketEvent.TOKENREFRESHREQUIRED], tokenManager);
+        SocketService.addHandlerWithTokenManager(socket, win, handler_manager[SocketEvent.BROADCAST_MESSAGE], tokenManager);
+        SocketService.addHandlerWithTokenManager(socket, win, handler_manager[SocketEvent.RECEIVE_INVITEUSER], tokenManager);
+        SocketService.addHandlerWithTokenManager(socket, win, handler_manager[SocketEvent.ERROR], tokenManager);
         waitDialog.close();
+        locale = app.getLocale();
+        win.webContents.send('getProfile', {name: tokenManager.getId(), locale: locale});
         win.show();
     }, 2000);
     // win.once('ready-to-show') 아래 함수가 작동하지않아 setTimeout 임시작성
@@ -162,6 +175,7 @@ ipcMain.on('signUpRequest', createSignUpRequest);
 ipcMain.on('signInRequest', (event, message)=>{
     httpInstance.post('/users/login', message)
     .then((response)=>{
+        tokenManager.setId(message.id);
         event.sender.send('signInRequest-Success', response);
     })
     .catch((error)=>{
