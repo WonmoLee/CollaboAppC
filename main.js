@@ -31,7 +31,7 @@ const displayLoginWindow = (event, message)=>{
     const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
     const options = {
         width: width,
-        height: height,
+        height: height-50,
         resizeable: false,
         fullscreenable: false,
         show: false,
@@ -44,7 +44,7 @@ const displayLoginWindow = (event, message)=>{
     win.loadURL(url.format({
         pathname: path.join(__dirname, 'login.html'),
         protocol: 'file',
-        slashes: true,
+        slashes: true
     }));
     win.webContents.openDevTools(); // 개발자도구
     win.once('ready-to-show', ()=>{

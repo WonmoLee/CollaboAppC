@@ -21,8 +21,45 @@
     const signUpButton = document.getElementById('button-SignUp');
     const hidePage = document.getElementById('hide-page');
 
+    // 아이디 입력 박스 이벤트
+    userIdInput.addEventListener('keypress', ()=>{
+        if(window.event.keyCode != 13) {
+            return;
+        };
+
+        if(userIdInput.value == null || userIdInput.value == "" || userPasswordInput.value == null || userPasswordInput.value == "") {
+            alert("아이디 또는 패스워드를 입력하세요.");
+            return;
+        };
+
+        const id = userIdInput.value;
+        const password = userPasswordInput.value;
+        const parameter = {
+            id: id,
+            password: password
+        };
+        ipcRenderer.send('signInRequest', parameter);
+    });
+
+    // 패스워드 입력 박스 이벤트
+    userPasswordInput.addEventListener('keypress', ()=>{
+        if(window.event.keyCode != 13) {
+            return;
+        };
+        if(userIdInput.value == null || userIdInput.value == "" || userPasswordInput.value == null || userPasswordInput.value == "") {
+            alert("아이디 또는 패스워드를 입력하세요.");
+            return;
+        };
+        const id = userIdInput.value;
+        const password = userPasswordInput.value;
+        const parameter = {
+            id: id,
+            password: password
+        };
+        ipcRenderer.send('signInRequest', parameter);
+    });
+
     signInButton.addEventListener('click', ()=>{
-        console.log('click');
         const id = userIdInput.value;
         const password = userPasswordInput.value;
         const parameter = {
