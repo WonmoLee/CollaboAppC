@@ -16,6 +16,10 @@ module.exports = [
         handler: require('./handler/onConnect')
     },
     {
+        event: SocketEvent.ERROR,
+        handler: require('./handler/onError')
+    },
+    {
         event: SocketEvent.CONNECT_TIMEOUT,
         handler: require('./handler/onConnectTimeout')
     },

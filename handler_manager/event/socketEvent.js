@@ -21,6 +21,7 @@ exports.RECONNECT_ERROR = 'reconnect_error';
 exports.RECONNECT_FAILED = 'reconnect_failed';
 exports.PING = 'ping';
 exports.PONG = 'pong';
+exports.ERROR = 'error';
 
 
 /**

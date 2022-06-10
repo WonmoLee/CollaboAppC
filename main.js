@@ -26,6 +26,7 @@ let socket;
 let modal;
 let waitDialog;
 let listener;
+let errorListener;
 const displayLoginWindow = (event, message)=>{
     const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
     const options = {
@@ -122,7 +123,8 @@ const displayWaitDialog = (event, message)=>{
             }
         };
         socket = SocketService.createSocket(io, socketURL, socketOptions);
-        listener= SocketService.addHandler(socket, waitDialog, handler_manager[0]);
+        listener = SocketService.addHandler(socket, waitDialog, handler_manager[0]);
+        errorListener = SocketService.addHandler(socket, waitDialog, handler_manager[1]);
     });
     waitDialog.on('closed', ()=>{
         waitDialog = null;
@@ -130,6 +132,7 @@ const displayWaitDialog = (event, message)=>{
 };
 const destroyWaitDialog = (event, message)=>{
     socket.removeListener('connect', listener);
+    socket.removeListener('error', errorListener);
     win.loadURL(url.format({
         pathname: path.join(__dirname, 'main.html'),
         protocol: 'file',
