@@ -7,21 +7,22 @@ asar: true
 mac:
   target:
     - default
-  icon: build/icons/icon.icns
+  icon: ''
 dmg:
   title: OM
-  icon: build/icons/icon.icns
+  icon: ''
 win:
   target:
+    - zip
     - nsis
-  icon: build/icons/icon.ico
+  icon: ''
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: false
   createDesktopShortcut: true
   perMachine: true
   language: '1042'
-  installerIcon: build/icons/icon.ico
+  installerIcon: ''
   shortcutName: OM
   artifactName: OM-${version}.${ext}
   uninstallDisplayName: OM

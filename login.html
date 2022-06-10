@@ -2,28 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/login.css">
     <title>OM</title>
 </head>
 <body>
-    <div class="hide-page" id="hide-page"></div>
-    <div class="login-form-wrapper">
-        <p class="title">로그인</p>
-        <div class="login-form">
-            <div class="input-wrapper" id="input-id-wrapper">
-                <p class="input-title">아이디: </p>
-                <input class="user-input" id="user-id-input" placeholder="아이디를 입력해주세요.">
+    <main id ="login__main">
+      <section class="form">
+        <div class="join__box">
+          <div class="join__title"><b>내 월세를 아껴줄 </b></div>
+          <div class="join__title2">
+            <b> 셰어하우스 우주</b>
+          </div>
+          <div>
+            <div class="username__check">
+              <input id="user-id-input" type="text" name="username" value="" class="text-input" placeholder=" 아이디를 입력해주세요." required="required"/>
             </div>
-            <div class="input-wrapper" id="input-password-wrapper">
-                <p class="input-title">비밀번호: </p>
-                <input class="user-input" id="user-password-input" placeholder="비밀번호를 입력해주세요.">
+            <input id="user-password-input" placeholder=" * 비밀번호 (8자리 이상)" class="text-input1" type="password" name="password" required="required"/>
+            <div id="signup_form"></div>
+            <div id="btn__goup">
+              <button id="button-SignIn" class="btn1">이 정보로 로그인</button>
+              <button id="button-SignUp" class="btn2">이 정보로 회원가입</button>
             </div>
-            <button class="display-button" id="button-SignIn">로그인</button>
-            <button class="display-button" id="button-SignUp">회원가입</button>
+          </div>
+          <div class="text__notice">
+            <span style="color: black;"> SNS 로그인 서비스 운영을 중단</span>합니다
+            <div>SNS 로그인 이용자는 '가입하셨던 이메일' 을 입력하여</div>
+            <div>추가 로그인 정보를 등록 후 이용해주세요 (최초 1회 입력)</div>
+          </div>
+          <div class="social_login">
+          	<div class="googleLogin">
+          		<a href="/oauth2/authorization/google"><img src="img/googlebtn.png"></a>
+          	</div>
+          	<div class="facebookLogin">
+          		<a href="/oauth2/authorization/facebook"><img src="img/facebookbtn.png"></a>
+          	</div>
+          </div>
         </div>
-    </div>
+      </section>
+    </main>
 </body>
 <script src="./webScripts/login.js"></script>
 </html>
