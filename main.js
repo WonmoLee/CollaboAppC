@@ -126,7 +126,7 @@ const displayWaitDialog = (event, message)=>{
     });
     waitDialog.on('closed', ()=>{
         waitDialog = null;
-    }) 
+    });
 };
 const destroyWaitDialog = (event, message)=>{
     socket.removeListener('connect', listener);
@@ -135,11 +135,17 @@ const destroyWaitDialog = (event, message)=>{
         protocol: 'file',
         slashes: true
     }));
-    win.once('ready-to-show', ()=>{
+    setTimeout(function(){
         SocketService.addHandlers(socket, win, handler_manager);
         waitDialog.close();
         win.show();
-    });
+    }, 2000);
+    // win.once('ready-to-show') 아래 함수가 작동하지않아 setTimeout 임시작성
+    // win.once('ready-to-show', ()=>{
+    //     SocketService.addHandlers(socket, win, handler_manager);
+    //     waitDialog.close();
+    //     win.show();
+    // });
 };
 app.on('ready', displayLoginWindow);
 ipcMain.on('displayWaitDialog', displayWaitDialog);
