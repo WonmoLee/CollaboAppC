@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="stylesheets/leaveRoomDialog.css">
     <link rel="stylesheet" href="stylesheets/createRoomDialog.css">
     <link rel="stylesheet" href="stylesheets/friendMenuDialog.css">
+    <link rel="stylesheet" href="stylesheets/addFriendDialog.css">
+    <link rel="stylesheet" href="stylesheets/elementLoader.css">
+    <link rel="stylesheet" href="stylesheets/listFriendDialog.css">
+    <link rel="stylesheet" href="stylesheets/listFriendRequestDialog.css">
+    <link rel="stylesheet" href="stylesheets/refreshTokenDialog.css">
     <title>OM</title>
 </head>
 <body>
@@ -81,7 +86,7 @@
             <div class="Dialog-button cancelButton" id="createCancelButton">취소</div>
         </div>
     </div> -->
-    <div class="DialogWrapper">
+    <!-- <div class="DialogWrapper">
         <div class="friendMenuDialog">
             <p>친구 기능</p>
             <ul class="friendMenuList" id="friendMenuList">
@@ -90,6 +95,52 @@
                 <li class="friendMenu" id="requestFriend">친구 요청</li>
             </ul>
             <div class="friendMenuDialog-button" id="closeFriendMenuDialogButton">닫기</div>
+        </div>
+    </div> -->
+    <!-- <div class="DialogWrapper depth2">
+        <div class="addFriendDialog">
+            <p class="addFriendDialog-title">친구 추가</p>
+            <input type="text" placeholder="친구아이디를 입력하세요." id="input-friendId">
+            <div class="seachUserButton" id="seachUserButton">검색</div>
+            <div class="searchUserResult">
+                <p id="searchUserResult">검색결과가 없습니다.</p>
+                <div class="addElementLoader" id="addElementLoader"></div>
+            </div>
+            <div class="Dialog-button confirmButton" id="addFriendConfirmButton">요청</div>
+            <div class="Dialog-button cancelButton" id="addFriendCancelButton">닫기</div>
+        </div>
+    </div> -->
+    <!-- <div class="DialogWrapper depth2">
+        <div class="listFriendDialog">
+            <p class="listFriendDialog-title">친구 목록</p>
+            <ul class="friendList" id="friendList">
+                <li class="friendElement">
+                    <p class="friendId">miro</p>
+                    <button class="cancelFriendShipButton">친구삭제</button>
+                    <div class="elementLoader"></div>
+                </li>
+            </ul>
+            <div class="friendMenuDialog-button" id="listCancelButton">닫기</div>
+        </div>
+    </div> -->
+    <!-- <div class="DialogWrapper depth2">
+        <div class="listFriendRequestDialog">
+            <p class="listFriendRequestDialog-title">친구 요청 목록</p>
+            <ul class="friendRequestList" id="friendRequestList">
+                <li class="requestElement">
+                    <p class="requestFriendId">angel</p>
+                    <button class="friendShipButton" value="1">수락</button>
+                    <button class="friendShipButton" value="0">거절</button>
+                    <div class="elementLoader"></div>
+                </li>
+            </ul>
+            <div class="friendMenuDialog-button" id="listCancelButton">닫기</div>
+        </div>
+    </div> -->
+    <div class="DialogWrapper depthTop">
+        <div class="refreshTokenDialog">
+            <p>토큰을 갱신중입니다.</p>
+            <div class="loader"></div>
         </div>
     </div>
 </body>
