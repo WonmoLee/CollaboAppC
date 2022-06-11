@@ -15,10 +15,12 @@
     const DialogFactory = require('././webScripts/dialogFactory');
     const RoomMenuArea = require('././webScripts/roomMenuArea');
     const RoomArea = require('././webScripts/roomArea');
+    const ChatArea = require('././webScripts/chatArea')
 
     const dialogFactory = new DialogFactory(document);
     const roomMenuArea = new RoomMenuArea(document);
     const roomArea = new RoomArea(document);
+    const chatArea = new ChatArea(document);
 
     ipcRenderer.on(socketEvent.HELLO, (event, message)=>{
         console.log(message);
@@ -84,4 +86,8 @@
     roomArea.CreateRoomButton.setEventListener(()=>{
         dialogFactory.getDialog('createRoomDialog').show();
     });
+    chatArea.MessageInputView.setSendEventListener(()=>{
+        alert(chatArea.MessageInputView.getMessage());
+    });
+    chatArea.MessageInputView.textArea.addEventListener('keydown',chatArea.MessageInputView.keyDownEventHandler.bind(chatArea.MessageInputView));
 })();
