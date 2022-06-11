@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="stylesheets/roomArea.css">
     <link rel="stylesheet" href="stylesheets/roomMenuArea.css">
     <link rel="stylesheet" href="stylesheets/chatArea.css">
+    <link rel="stylesheet" href="stylesheets/dialogWrapper.css">
+    <link rel="stylesheet" href="stylesheets/inviteRoomDialog.css">
+    <link rel="stylesheet" href="stylesheets/dialogButton.css">
+    <link rel="stylesheet" href="stylesheets/leaveRoomDialog.css">
     <title>OM</title>
 </head>
 <body>
@@ -50,6 +54,21 @@
         <div class="chatAreaInputWrapper">
             <textarea class="messageTextArea" placeholder="메시지를 입력하세요." id="mesaageTextArea"></textarea>
             <div class="sendMessageButton" id="sendMessageButton">전송</div>
+        </div>
+    </div>
+    <!-- <div class="DialogWrapper">
+        <div class="inviteRoomDialog">
+            <p>초대할 유저의 아이디를 입력해주세요.</p>
+            <input type="email" placeholder="example@example.com" id="input-userId">
+            <div class="Dialog-button confirmButton" id="inviteConfirmButton">확인</div>
+            <div class="Dialog-button cancelButton" id="inviteCancelButton">취소</div>
+        </div>
+    </div> -->
+    <div class="DialogWrapper">
+        <div class="leaveRoomDialog">
+            <p>방을 나가시겠습니까?</p>
+            <div class="Dialog-button confirmButton" id="leaveConfirmButton">확인</div>
+            <div class="Dialog-button cancelButton" id="leaveCancelButton">취소</div>
         </div>
     </div>
 </body>
