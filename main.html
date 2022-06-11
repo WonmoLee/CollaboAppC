@@ -4,10 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/init.css">
+    <link rel="stylesheet" href="stylesheets/roomArea.css">
+    <link rel="stylesheet" href="stylesheets/roomMenuArea.css">
+    <link rel="stylesheet" href="stylesheets/chatArea.css">
     <title>OM</title>
 </head>
 <body>
-    <h3>메인 페이지</h3>
+    <div class="roomArea" id="roomArea">
+        <div class="profile" id="profile">OM</div>
+        <div class="openFriendMenuButton" id="openFriendMenuButton">친구</div>
+        <ul class="roomList" id="roomList">
+            <li class="roomButton" id="134nk234">room1</li>
+            <li class="roomButton" id="134nk235">room2</li>
+        </ul>
+        <div class="createRoomButton" id="createRoomButton">방생성</div> 
+    </div>
+    <div class="roomMenuArea">
+        <ul class="roomMenu" id="roomMenu">
+            <li><div class="button" id="inviteRoomButton">초대</div></li>
+            <li><div class="button" id="inviteRoomButton">나가기</div></li>
+        </ul>
+    </div>
+    <div class="chatAreaWrapper">
+        <div class="chatArea">
+            <ul class="messageList" id="messageList">
+                <li class="messageElement" id="object1">
+                    <div>
+                        <p class="messageElementProfile">wonmoLee</p>
+                        <p class="messageElementDate">2022-03-05</p>
+                        <div class="messageElementReSendButton">재전송</div>
+                        <p class="messageContent">안녕하세요.</p>
+                    </div>
+                </li>
+                <li class="messageElement" id="object2">
+                    <div>
+                        <p class="messageElementProfile">chu</p>
+                        <p class="messageElementDate">2022-03-05</p>
+                        <div class="messageElementReSendButton">재전송</div>
+                        <p class="messageContent">반가워요</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="chatAreaInputWrapper">
+            <textarea class="messageTextArea" placeholder="메시지를 입력하세요." id="mesaageTextArea"></textarea>
+            <div class="sendMessageButton" id="sendMessageButton">전송</div>
+        </div>
+    </div>
 </body>
 <script src="./webScripts/main.js"></script>
 </html>

@@ -27,8 +27,14 @@
             return;
         };
 
-        if(userIdInput.value == null || userIdInput.value == "" || userPasswordInput.value == null || userPasswordInput.value == "") {
-            alert("아이디 또는 패스워드를 입력하세요.");
+        if(userIdInput.value == null || userIdInput.value == "") {
+            alert("아이디를 입력하세요.");
+            return;
+        };
+
+        if(userPasswordInput.value == null || userPasswordInput.value == "") {
+            alert("패스워드를 입력하세요.");
+            userPasswordInput.focus();
             return;
         };
 
@@ -46,8 +52,15 @@
         if(window.event.keyCode != 13) {
             return;
         };
-        if(userIdInput.value == null || userIdInput.value == "" || userPasswordInput.value == null || userPasswordInput.value == "") {
-            alert("아이디 또는 패스워드를 입력하세요.");
+
+        if(userIdInput.value == null || userIdInput.value == "") {
+            alert("아이디를 입력하세요.");
+            userIdInput.focus();
+            return;
+        };
+
+        if(userPasswordInput.value == null || userPasswordInput.value == "") {
+            alert("패스워드를 입력하세요.");
             return;
         };
         const id = userIdInput.value;
