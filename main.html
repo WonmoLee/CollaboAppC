@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="stylesheets/inviteRoomDialog.css">
     <link rel="stylesheet" href="stylesheets/dialogButton.css">
     <link rel="stylesheet" href="stylesheets/leaveRoomDialog.css">
+    <link rel="stylesheet" href="stylesheets/createRoomDialog.css">
+    <link rel="stylesheet" href="stylesheets/friendMenuDialog.css">
     <title>OM</title>
 </head>
 <body>
@@ -64,11 +66,30 @@
             <div class="Dialog-button cancelButton" id="inviteCancelButton">취소</div>
         </div>
     </div> -->
-    <div class="DialogWrapper">
+    <!-- <div class="DialogWrapper">
         <div class="leaveRoomDialog">
             <p>방을 나가시겠습니까?</p>
             <div class="Dialog-button confirmButton" id="leaveConfirmButton">확인</div>
             <div class="Dialog-button cancelButton" id="leaveCancelButton">취소</div>
+        </div>
+    </div> -->
+    <!-- <div class="DialogWrapper">
+        <div class="createRoomDialog">
+            <p>생성할 방 이름을 입력해주세요.</p>
+            <input type="text" placeholder="방 이름을 입력하세요." id="input-roomName">
+            <div class="Dialog-button confirmButton" id="createConfirmButton">확인</div>
+            <div class="Dialog-button cancelButton" id="createCancelButton">취소</div>
+        </div>
+    </div> -->
+    <div class="DialogWrapper">
+        <div class="friendMenuDialog">
+            <p>친구 기능</p>
+            <ul class="friendMenuList" id="friendMenuList">
+                <li class="friendMenu" id="addFriend">친구 추가</li>
+                <li class="friendMenu" id="showFriend">친구 리스트</li>
+                <li class="friendMenu" id="requestFriend">친구 요청</li>
+            </ul>
+            <div class="friendMenuDialog-button" id="closeFriendMenuDialogButton">닫기</div>
         </div>
     </div>
 </body>
