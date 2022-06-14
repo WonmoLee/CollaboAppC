@@ -44,7 +44,8 @@ const displayLoginWindow = (event, message)=>{
     show:false,
     webPreferences:{
       affinity:true,
-      nodeIntegration:true
+      nodeIntegration:true,
+      contextIsolation: false
     }
   };
   win = new BrowserWindow(options);
