@@ -69,7 +69,7 @@ const displaySignUpModal = (event,message)=>{
   modal = new BrowserWindow({parent:win,modal:true,show:false});
 
   modal.loadURL(url.format({
-    pathname:path.join(__dirname,'SignUpModal.html'),
+    pathname:path.join(__dirname,'signUpModal.html'),
     protocol:'file:'
   }));
   modal.once('ready-to-show',()=>{
