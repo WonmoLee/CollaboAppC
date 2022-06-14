@@ -23,13 +23,13 @@
 </head>
 <body>
     <div class="roomArea" id="roomArea">
-        <div class="profile" id="profile">OM</div>
-        <div class="openFriendMenuButton" id="openFriendMenuButton">친구</div>
+        <div class="profile" id="profile"></div>
+        <div class="openFriendMenuButton" id="openFriendMenuButton">친구메뉴</div>
         <ul class="roomList" id="roomList">
-            <li class="roomButton" id="134nk234">room1</li>
-            <li class="roomButton" id="134nk235">room2</li>
+            <!--<li class="roomButton" id="134nk234">room1</li>-->
+            <!--<li class="roomButton" id="134nk235">room2</li>-->
         </ul>
-        <div class="createRoomButton" id="createRoomButton">방생성</div> 
+        <div class="createRoomButton" id="createRoomButton">방생성</div>
     </div>
     <div class="roomMenuArea">
         <ul class="roomMenu" id="roomMenu">
@@ -40,22 +40,23 @@
     <div class="chatAreaWrapper">
         <div class="chatArea">
             <ul class="messageList" id="messageList">
-                <li class="messageElement" id="object1">
-                    <div>
-                        <p class="messageElementProfile">wonmoLee</p>
-                        <p class="messageElementDate">2022-03-05</p>
-                        <div class="messageElementReSendButton">재전송</div>
-                        <p class="messageContent">안녕하세요.</p>
-                    </div>
-                </li>
-                <li class="messageElement" id="object2">
-                    <div>
-                        <p class="messageElementProfile">chu</p>
-                        <p class="messageElementDate">2022-03-05</p>
-                        <div class="messageElementReSendButton">재전송</div>
-                        <p class="messageContent">반가워요</p>
-                    </div>
-                </li>
+                <!--<li class="messageElement" id="object1">-->
+                    <!--<div>-->
+                        <!--<p class="messageElementProfile">kishe56@gmail.com</p>-->
+                        <!--<p class="messageElementDate">2018-03-21 14:32:22</p>-->
+                        <!--<div class="messageElementReSendButton">재전송</div>-->
+                        <!--<p class="messageContent">안녕하세요. 첫 메시지</p>-->
+
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="messageElement" id="object2">-->
+                    <!--<div>-->
+                        <!--<p class="messageElementProfile">kishe56@gmail.com</p>-->
+                        <!--<p class="messageElementDate">2018-03-21 15:34:22</p>-->
+                        <!--<div class="messageElementReSendButton">재전송</div>-->
+                        <!--<p class="messageContent">안녕하세요. 두번째 메시지</p>-->
+                    <!--</div>-->
+                <!--</li>-->
             </ul>
         </div>
         <div class="chatAreaInputWrapper">
@@ -70,7 +71,7 @@
             <div class="Dialog-button confirmButton" id="inviteConfirmButton">확인</div>
             <div class="Dialog-button cancelButton" id="inviteCancelButton">취소</div>
         </div>
-    </div> -->
+    </div>
     <div class="DialogWrapper" id="leaveRoomDialogWrapper">
         <div class="leaveRoomDialog">
             <p>방을 나가시겠습니까?</p>
@@ -91,7 +92,7 @@
             <p>친구 기능</p>
             <ul class="friendMenuList" id="friendMenuList">
                 <li class="friendMenu" id="addFriend">친구 추가</li>
-                <li class="friendMenu" id="showFriend">친구 리스트</li>
+                <li class="friendMenu" id="showFriends">친구 리스트</li>
                 <li class="friendMenu" id="requestFriend">친구 요청</li>
             </ul>
             <div class="friendMenuDialog-button" id="closeFriendMenuDialogButton">닫기</div>
@@ -101,24 +102,24 @@
         <div class="addFriendDialog">
             <p class="addFriendDialog-title">친구 추가</p>
             <input type="text" placeholder="친구아이디를 입력하세요." id="input-friendId">
-            <div class="seachUserButton" id="seachUserButton">검색</div>
+            <div class="searchUserButton" id="searchUserButton">검색</div>
             <div class="searchUserResult">
                 <p id="searchUserResult">검색결과가 없습니다.</p>
                 <div class="addElementLoader" id="addElementLoader"></div>
             </div>
             <div class="Dialog-button confirmButton" id="addFriendConfirmButton">요청</div>
-            <div class="Dialog-button cancelButton" id="addFriendCancelButton">닫기</div>
+            <div class="Dialog-button cancelButton" id="addFriendCancelButton">취소</div>
         </div>
     </div>
     <div class="DialogWrapper depth2" id="listFriendDialogWrapper">
         <div class="listFriendDialog">
             <p class="listFriendDialog-title">친구 목록</p>
             <ul class="friendList" id="friendList">
-                <li class="friendElement">
-                    <p class="friendId">miro</p>
-                    <button class="cancelFriendShipButton">친구삭제</button>
-                    <div class="elementLoader"></div>
-                </li>
+                <!--<li class="friendElement">-->
+                    <!--<p class="friendId">kishe56@gmail.com</p>-->
+                    <!--<button class="cancelFriendShipButton">친구삭제</button>-->
+                    <!--<div class="elementLoader"></div>-->
+                <!--</li>-->
             </ul>
             <div class="friendMenuDialog-button" id="listCancelButton">닫기</div>
         </div>
@@ -127,12 +128,12 @@
         <div class="listFriendRequestDialog">
             <p class="listFriendRequestDialog-title">친구 요청 목록</p>
             <ul class="friendRequestList" id="friendRequestList">
-                <li class="requestElement">
-                    <p class="requestFriendId">angel</p>
-                    <button class="friendShipButton" value="1">수락</button>
-                    <button class="friendShipButton" value="0">거절</button>
-                    <div class="elementLoader"></div>
-                </li>
+                <!--<li class="requestElement">-->
+                    <!--<p class="requestFriendId">kishe89@gmail.com</p>-->
+                    <!--<button class="FriendShipButton" value="1">수락</button>-->
+                    <!--<button class="FriendShipButton" value="0">거절</button>-->
+                    <!--<div class="elementLoader"></div>-->
+                <!--</li>-->
             </ul>
             <div class="friendMenuDialog-button" id="listFriendCloseButton">닫기</div>
         </div>

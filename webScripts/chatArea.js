@@ -7,16 +7,19 @@
  * - Revision history -
  * 
  */
+'use strict';
 
 function ChatArea(document) {
-    if(!(this instanceof ChatArea)) {
-        throw new Error('must be created with new keyword');
-    };
-    const MessageList = require('./messageList');
-    const MessageInputView = require('./messageInputView');
+  if(!(this instanceof ChatArea)){
+    throw new Error('must be created with new keyword');
+  }
+  const MessageList = require('./MessageList');
+  const MessageInputView = require('./MessageInputView');
+  const NotificationList = require('./NotificationList');
+  this.MessageList = new MessageList(document);
+  this.NotificationList = new NotificationList();
+  this.MessageInputview = new MessageInputView(document);
 
-    this.MessageList = new MessageList(document);
-    this.MessageInputView = new MessageInputView(document);
-};
+}
 
 module.exports = ChatArea;
