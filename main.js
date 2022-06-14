@@ -16,7 +16,7 @@ const path = require('path');
 const io = require('socket.io-client');
 const axios = require('axios');
 const httpInstance = axios.create({
-  baseURL:'http://127.0.0.1:3000'
+  baseURL:'http://61.75.138.220:3030'
 });
 
 const handler_manager = require('./handler_manager');
@@ -118,7 +118,7 @@ const displayWaitDialog = (event, message)=>{
   waitDialog.once('ready-to-show',()=>{
     win.hide();
     waitDialog.show();
-    const socketURL = 'ws://127.0.0.1:3000';
+    const socketURL = 'ws://61.75.138.220:3030';
     const socketOptions = {
       transports:['websocket'],
       forceNew:true,

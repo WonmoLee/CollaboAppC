@@ -10,7 +10,7 @@
 
 module.exports = (socket, win, TokenManager)=>{
     const axios = require('axios');
-    const httpInstance = axios.create({baseURL: 'http://127.0.0.1:3000'});
+    const httpInstance = axios.create({baseURL: 'http://61.75.138.220:3030'});
 
     const tokenRequest = ()=>{
         const token = TokenManager.getToken();
