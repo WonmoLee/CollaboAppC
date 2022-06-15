@@ -1,0 +1,8 @@
+version: 1.0.0
+files:
+  - url: OM-1.0.0.exe
+    sha512: Je0Prz4/jPSls5Wt8ZKDd24momDSM8Iy7ilUhl2/CX68vxcg6Jjk978/rQ5zCmfNN1Xsd+lqrlPJd793URQsLQ==
+    size: 39200833
+path: OM-1.0.0.exe
+sha512: Je0Prz4/jPSls5Wt8ZKDd24momDSM8Iy7ilUhl2/CX68vxcg6Jjk978/rQ5zCmfNN1Xsd+lqrlPJd793URQsLQ==
+releaseDate: '2022-06-15T02:17:01.618Z'
