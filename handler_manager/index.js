@@ -10,7 +10,7 @@
 
 'use strict';
 
-const SocketEvent = require('./event/SocketEvent');
+const SocketEvent = require('./event/socketEvent');
 const dict = [];
 
 dict[SocketEvent.CONNECT] = {
