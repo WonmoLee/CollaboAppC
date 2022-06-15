@@ -24,7 +24,7 @@
     margin-bottom: 0;
     padding-left: 0;
     list-style: none;
-    /* overflow: scroll; */
+    overflow: scroll;
 }
 
 .messageElement {
