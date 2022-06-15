@@ -21,7 +21,7 @@ const httpInstance = axios.create({
 
 const handler_manager = require('./handler_manager');
 const SocketService = require('./service/SocketService');
-const SocketEvent = require('./handler_manager/event/SocketEvent');
+const SocketEvent = require('./handler_manager/event/socketEvent');
 const TokenManager = require('./service/TokenManager');
 const tokenManager = new TokenManager();
 const MainWindowActions = require('./mainProcess/MainWindowActions');
