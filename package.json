@@ -13,7 +13,9 @@
     "axios": "~0.18.0",
     "babel-cli": "~6.26.0",
     "babel-preset-env": "~1.7.0",
+    "electron-log": "^4.4.7",
     "electron-packager": "^15.5.1",
+    "electron-updater": "^5.0.1",
     "moment": "~2.22.2",
     "socket.io-client": "~2.1.1"
   },

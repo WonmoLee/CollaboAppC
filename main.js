@@ -15,6 +15,8 @@ const url = require('url');
 const path = require('path');
 const io = require('socket.io-client');
 const axios = require('axios');
+const { autoUpdater } = require("electron-updater");
+const log = require('electron-log');
 const httpInstance = axios.create({
   baseURL:'http://61.75.138.220:3030'
 });
@@ -35,6 +37,7 @@ let errorListener;
 let locale;
 
 const displayLoginWindow = (event, message)=>{
+  autoUpdater.checkForUpdates();
   const {width,height} = electron.screen.getPrimaryDisplay().workAreaSize;
   const options = {
     width:width,
@@ -190,10 +193,32 @@ ipcMain.on('signInRequest',(event,message)=>{
     })
 });
 
-
 app.on('window-all-closed',()=>{
   app.quit();
 });
 app.on('activate',()=>{
   app.quit();
+});
+
+// 앱 업데이트
+autoUpdater.on('checking-for-update', () => {
+  log.info('업데이트 확인 중...');
+});
+autoUpdater.on('update-available', (info) => {
+  log.info('업데이트가 가능합니다.');
+});
+autoUpdater.on('update-not-available', (info) => {
+  log.info('현재 최신버전입니다.');
+});
+autoUpdater.on('error', (err) => {
+  log.info('에러가 발생하였습니다. 에러내용 : ' + err);
+});
+autoUpdater.on('download-progress', (progressObj) => {
+  let log_message = "다운로드 속도: " + progressObj.bytesPerSecond;
+  log_message = log_message + ' - 현재 ' + progressObj.percent + '%';
+  log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
+  log.info(log_message);
+})
+autoUpdater.on('update-downloaded', (info) => {
+  log.info('업데이트가 완료되었습니다.');
 });
