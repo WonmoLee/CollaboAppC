@@ -13,8 +13,8 @@ function ChatArea(document) {
   if(!(this instanceof ChatArea)){
     throw new Error('must be created with new keyword');
   }
-  const MessageList = require('./MessageList');
-  const MessageInputView = require('./MessageInputView');
+  const MessageList = require('./messageList');
+  const MessageInputView = require('./messageInputView');
   const NotificationList = require('./NotificationList');
   this.MessageList = new MessageList(document);
   this.NotificationList = new NotificationList();

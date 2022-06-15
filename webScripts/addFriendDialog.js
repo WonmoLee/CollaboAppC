@@ -13,7 +13,7 @@ function AddFriendDialog(document) {
   if(!(this instanceof AddFriendDialog)){
     throw new Error('must be created with new keyword');
   }
-  const Button = require('./Button');
+  const Button = require('./button');
   this.view = document.getElementById('addFriendDialogWrapper');
   this.friendIdInput = document.getElementById('input-friendId');
   this.searchUserResult = document.getElementById('searchUserResult');

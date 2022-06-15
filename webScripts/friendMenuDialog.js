@@ -13,7 +13,7 @@ function FriendMenuDialog(document) {
   if(!(this instanceof FriendMenuDialog)){
     throw new Error('must be created with new keyword');
   }
-  const Button = require('./Button');
+  const Button = require('./button');
   this.view = document.getElementById('friendMenuDialogWrapper');
   this.MenuList = document.getElementById('friendMenuList');
   this.CloseButton = new Button(document.getElementById('closeFriendMenuDialogButton'));

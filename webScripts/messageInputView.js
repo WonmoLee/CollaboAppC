@@ -13,7 +13,7 @@ function MessageInputView(document) {
   if(!(this instanceof MessageInputView)){
     throw new Error('must be created with new keyword');
   }
-  const Button = require('./Button');
+  const Button = require('./button');
   this.view = document.getElementById('chatAreaInputWrapper');
   this.textArea = document.getElementById('messageTextArea');
   this.sendButton = new Button(document.getElementById('sendMessageButton'));

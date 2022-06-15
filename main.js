@@ -20,9 +20,9 @@ const httpInstance = axios.create({
 });
 
 const handler_manager = require('./handler_manager');
-const SocketService = require('./service/SocketService');
+const SocketService = require('./service/socketService');
 const SocketEvent = require('./handler_manager/event/socketEvent');
-const TokenManager = require('./service/TokenManager');
+const TokenManager = require('./service/tokenManager');
 const tokenManager = new TokenManager();
 const MainWindowActions = require('./mainProcess/MainWindowActions');
 
@@ -37,8 +37,8 @@ let locale;
 const displayLoginWindow = (event, message)=>{
   const {width,height} = electron.screen.getPrimaryDisplay().workAreaSize;
   const options = {
-    width:width - 200,
-    height:height - 50,
+    width:width,
+    height:height,
     resizable:false,
     fullscreenable:false,
     show:false,
@@ -112,7 +112,7 @@ const displayWaitDialog = (event, message)=>{
   };
   waitDialog = new BrowserWindow(options);
   waitDialog.loadURL(url.format({
-    pathname:path.join(__dirname,'WaitDialog.html'),
+    pathname:path.join(__dirname,'waitDialog.html'),
     protocol:'file',
     slashes:true
   }));

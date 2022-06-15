@@ -8,22 +8,22 @@
  * 
  */
 
-module.exports = (socket, win, TokenManager)=>{
+ module.exports = (socket,win,TokenManager)=>{
     const axios = require('axios');
-    const httpInstance = axios.create({baseURL: 'http://61.75.138.220:3030'});
-
+    const httpInstance = axios.create({baseURL:'http://61.75.138.220:3030'});
     const tokenRequest = ()=>{
-        const token = TokenManager.getToken();
-        const id = TokenManager.getId();
-        return httpInstance.get('/users/token?id='+id, {headers: {'x-access-token': token}});
+      const token = TokenManager.getToken();
+      const id = TokenManager.getId();
+      return httpInstance.get('/users/token?id='+id,{headers:{'x-access-token':token}});
     };
+    win.webContents.send('tokenRefreshing');
     tokenRequest()
-        .then((response)=>{
-            TokenManager.setToken(response.data.token);
-            socket.io.opts.query = {token: TokenManager.getToken()};
-            win.webContents.send('tokenRefreshing-Success');
-        })
-        .catch((e)=>{
-            win.webContents.send('tokenRefreshing-Failure');
-        });
+      .then((response)=>{
+        TokenManager.setToken(response.data.token);
+        socket.io.opts.query = {token:TokenManager.getToken()};
+        win.webContents.send('tokenRefreshing-Success');
+      })
+      .catch((e)=>{
+        win.webContents.send('tokenRefreshing-Failure');
+      })
 };

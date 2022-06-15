@@ -13,7 +13,7 @@ function InviteRoomDialog(document) {
   if(!(this instanceof InviteRoomDialog)){
     throw new Error('must be created with new keyword');
   }
-  const Button = require('./Button');
+  const Button = require('./button');
   this.view = document.getElementById('inviteRoomDialogWrapper');
   this.userIdInput = document.getElementById('input-userId');
   this.confirmButton = new Button(document.getElementById('inviteConfirmButton'));

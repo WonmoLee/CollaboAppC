@@ -13,7 +13,7 @@ function LeaveRoomDialog(document) {
   if(!(this instanceof LeaveRoomDialog)){
     throw new Error('must be created with new keyword');
   }
-  const Button = require('./Button');
+  const Button = require('./button');
   this.view = document.getElementById('leaveRoomDialogWrapper');
   this.confirmButton = new Button(document.getElementById('leaveConfirmButton'));
   this.cancelButton = new Button(document.getElementById('leaveCancelButton'));

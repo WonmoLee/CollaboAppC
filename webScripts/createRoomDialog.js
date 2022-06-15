@@ -13,7 +13,7 @@ function CreateRoomDialog(document) {
   if(!(this instanceof CreateRoomDialog)){
     throw new Error('must be created with new keyword');
   }
-  const Button = require('./Button');
+  const Button = require('./button');
   this.view = document.getElementById('createRoomDialogWrapper');
   this.roomNameInput = document.getElementById('input-roomName');
   this.confirmButton = new Button(document.getElementById('createConfirmButton'));

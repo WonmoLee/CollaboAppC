@@ -12,11 +12,11 @@
 (()=>{
   const electron = require('electron');
   const ipcRenderer = electron.ipcRenderer;
-  const SocketEvent = require('././handler_manager/event/SocketEvent');
-  const DialogFactory = require('././webScripts/DialogFactory');
-  const RoomMenuArea = require('././webScripts/RoomMenuArea');
-  const RoomArea = require('././webScripts/RoomArea');
-  const ChatArea = require('././webScripts/ChatArea');
+  const SocketEvent = require('././handler_manager/event/socketEvent');
+  const DialogFactory = require('././webScripts/dialogFactory');
+  const RoomMenuArea = require('././webScripts/roomMenuArea');
+  const RoomArea = require('././webScripts/roomArea');
+  const ChatArea = require('././webScripts/chatArea');
   const MainEvent = require('././mainProcess/MainEvent');
   const dialogFactory = new DialogFactory(document);
   const roomMenuArea = new RoomMenuArea(document);

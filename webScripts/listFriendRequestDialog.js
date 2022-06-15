@@ -13,7 +13,7 @@ function ListFriendRequestDialog(document) {
   if(!(this instanceof ListFriendRequestDialog)){
     throw new Error('must be created with new keyword');
   }
-  const Button = require('./Button');
+  const Button = require('./button');
   const MessageItemFactory = require('./MessageItemFactory');
   this.view = document.getElementById('listFriendRequestDialogWrapper');
   this.items = document.getElementById('friendRequestList');
