@@ -19,6 +19,11 @@
     "moment": "~2.22.2",
     "socket.io-client": "~2.1.1"
   },
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/wonmoLee/CollaboAppC.git"
+
+  },
   "author": "wonmoLee",
   "license": "ISC",
   "build": {

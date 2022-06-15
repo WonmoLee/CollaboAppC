@@ -37,7 +37,6 @@ let errorListener;
 let locale;
 
 const displayLoginWindow = (event, message)=>{
-  autoUpdater.checkForUpdates();
   const {width,height} = electron.screen.getPrimaryDisplay().workAreaSize;
   const options = {
     width:width,
@@ -67,6 +66,7 @@ const displayLoginWindow = (event, message)=>{
     win = null;
     app.quit();
   });
+  autoUpdater.checkForUpdates();
 };
 const displaySignUpModal = (event,message)=>{
   win.webContents.send('hide-page');
